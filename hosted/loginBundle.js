@@ -43,7 +43,7 @@ var LoginWindow = function LoginWindow(props) {
     onSubmit: handleLogin,
     action: "/login",
     method: "POST",
-    classname: "mainForm"
+    className: "mainForm"
   }, /*#__PURE__*/React.createElement("label", {
     htmlFor: "username"
   }, "Username: "), /*#__PURE__*/React.createElement("input", {
@@ -64,19 +64,19 @@ var LoginWindow = function LoginWindow(props) {
     value: props.csrf
   }), /*#__PURE__*/React.createElement("input", {
     className: "formSubmit",
-    tpye: "submit",
+    type: "submit",
     value: "Sign in"
   }));
 };
 
-var SignpuWindow = function SignpuWindow(props) {
+var SignupWindow = function SignupWindow(props) {
   return /*#__PURE__*/React.createElement("form", {
     id: "signupForm",
     name: "signupForm",
     onSubmit: handleSignup,
     action: "/signup",
     method: "POST",
-    classname: "mainForm"
+    className: "mainForm"
   }, /*#__PURE__*/React.createElement("label", {
     htmlFor: "username"
   }, "Username: "), /*#__PURE__*/React.createElement("input", {
@@ -104,7 +104,7 @@ var SignpuWindow = function SignpuWindow(props) {
     value: props.csrf
   }), /*#__PURE__*/React.createElement("input", {
     className: "formSubmit",
-    tpye: "submit",
+    type: "submit",
     value: "Sign up"
   }));
 };
@@ -116,7 +116,7 @@ var createLoginWindow = function createLoginWindow(csrf) {
 };
 
 var createSignupWindow = function createSignupWindow(csrf) {
-  ReactDOM.render( /*#__PURE__*/React.createElement(SignpuWindow, {
+  ReactDOM.render( /*#__PURE__*/React.createElement(SignupWindow, {
     csrf: csrf
   }), document.querySelector('#content'));
 };
