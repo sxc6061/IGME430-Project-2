@@ -1,0 +1,62 @@
+const mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+const _ = require('underscore');
+
+let PokeModel = {};
+
+const convertId = mongoose.Types.ObjectId;
+
+
+const PokeSchema = new mongoose.Schema({
+    //get multiple info for pokemon to add
+    name: {
+        type: String,
+        required: true,
+    },
+    type: {
+        type: String,
+        required: true,
+    },
+    id: {
+        type: Number,
+        min: 0,
+        required: true,
+    },
+    move: {
+        type: String,
+        required: true,
+    },
+    img: {
+        type: String,
+        required: true,
+    },
+    trainerId: {
+        type: mongoose.Schema.ObjectId,
+        required: true,
+        ref: 'Account',
+    },
+    captureDate: {
+        type: Date,
+        default: Date.now,
+    },
+});
+
+PokeSchema.statics.toAPI = (doc) => ({
+    name: doc.name,
+    type: doc.type,
+    id: doc.id,
+    move: doc.move,
+});
+
+PokeSchema.statics.findByOwner = (ownerId, callback) => {
+    const search = {
+        trainer: convertId(trainerId),
+    };
+
+    return PokeModel.find(search).select('name type id move').lean().exec(callback);
+};
+
+PokeModel = mongoose.model('Poke', PokeSchema);
+
+module.exports.PokeModel = PokeModel;
+module.exports.PokeSchema = PokeSchema;
