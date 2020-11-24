@@ -152,13 +152,13 @@ var handleError = function handleError(message) {
   $('#errorMessage').text(message);
   $('#pikaMessage').animate({
     width: 'toggle'
-  }, 350);
+  }, 400);
 };
 
 var redirect = function redirect(response) {
   $('#pikaMessage').animate({
     width: 'hide'
-  }, 350);
+  }, 400);
   window.location = response.redirect;
 };
 

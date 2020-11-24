@@ -1,5 +1,9 @@
 "use strict";
 
+var Pokedex = require('pokedex-promise-v2');
+
+var P = new Pokedex();
+
 var handlePoke = function handlePoke(e) {
   e.preventDefault();
   $('#pikaMessage').animate({
@@ -90,13 +94,13 @@ var handleError = function handleError(message) {
   $('#errorMessage').text(message);
   $('#pikaMessage').animate({
     width: 'toggle'
-  }, 350);
+  }, 400);
 };
 
 var redirect = function redirect(response) {
   $('#pikaMessage').animate({
     width: 'hide'
-  }, 350);
+  }, 400);
   window.location = response.redirect;
 };
 

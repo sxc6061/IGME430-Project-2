@@ -1,10 +1,10 @@
 const handleError = (message) => {
     $('#errorMessage').text(message);
-    $('#pikaMessage').animate({width:'toggle'},350);
+    $('#pikaMessage').animate({width:'toggle'},400);
 };
 
 const redirect = (response) => {
-    $('#pikaMessage').animate({width:'hide'},350);
+    $('#pikaMessage').animate({width:'hide'},400);
     window.location = response.redirect;
 };
 
