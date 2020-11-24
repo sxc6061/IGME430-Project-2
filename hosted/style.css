@@ -138,7 +138,7 @@ nav:nth-child(1) {
 #pikachu {
     z-index: 225;
     margin-top: -20px;
-    margin-left: 135px;
+    margin-left: 50px;
     -ms-transform: rotate(330deg);
     -webkit-transform: rotate(330deg); 
     transform: rotate(330deg);
