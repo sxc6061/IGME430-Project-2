@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-const _ = require('underscore');
 
 let PokeModel = {};
 
@@ -48,7 +47,7 @@ PokeSchema.statics.toAPI = (doc) => ({
     move: doc.move,
 });
 
-PokeSchema.statics.findByOwner = (ownerId, callback) => {
+PokeSchema.statics.findByOwner = (trainerId, callback) => {
     const search = {
         trainer: convertId(trainerId),
     };

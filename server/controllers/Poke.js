@@ -1,3 +1,6 @@
+const Pokedex = require('pokedex-promise-v2');
+const P = new Pokedex();
+
 const models = require('../models');
 
 const Poke = models.Poke;
