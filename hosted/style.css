@@ -139,9 +139,9 @@ nav:nth-child(1) {
     z-index: 225;
     margin-top: -20px;
     margin-right: 150px;
-    -ms-transform: rotate(330deg);
-    -webkit-transform: rotate(330deg); 
-    transform: rotate(330deg);
+    -ms-transform: rotate(380deg);
+    -webkit-transform: rotate(380deg); 
+    transform: rotate(380deg);
 }
 
 #pokemon {
