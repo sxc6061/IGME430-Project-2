@@ -13,7 +13,7 @@ const handlePoke = (e) => {
     return false;
 };
 
-const PokeButton = (props) => {
+const PokeButton = () => {
     return (
         <button id="pokeButton"
             onClick={handlePoke}

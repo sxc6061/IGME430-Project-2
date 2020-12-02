@@ -1,9 +1,5 @@
 "use strict";
 
-var Pokedex = require('pokedex-promise-v2');
-
-var P = new Pokedex();
-
 var handlePoke = function handlePoke(e) {
   e.preventDefault();
   $('#pikaMessage').animate({
@@ -15,7 +11,7 @@ var handlePoke = function handlePoke(e) {
   return false;
 };
 
-var PokeButton = function PokeButton(props) {
+var PokeButton = function PokeButton() {
   return /*#__PURE__*/React.createElement("button", {
     id: "pokeButton",
     onClick: handlePoke,
