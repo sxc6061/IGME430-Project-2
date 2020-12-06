@@ -2,7 +2,7 @@ var Pokedex = require('pokedex-promise-v2');
 var P = new Pokedex();
 const models = require('../models');
 
-const { Poke } = models;
+const Poke = models.Poke;
 
 const trainerPage = (req, res) => {
   Poke.PokeModel.findByOwner(req.session.account._id, (err, docs) => {
