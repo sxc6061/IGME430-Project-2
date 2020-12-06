@@ -10,7 +10,7 @@ const trainerPage = (req, res) => {
       console.log(err);
       return res.status(400).json({ error: 'An error occurred' });
     }
-    return res.render('app', { csrfToken: req.csrfToken(), pokemon: docs });
+    return res.render('app', { csrfToken: req.csrfToken(), pokemons: docs });
   });
 };
 const savePoke = (req, res) => {
@@ -46,7 +46,7 @@ const getPokemon = (request, response) => {
       console.log(err);
       return res.status(400).json({ error: 'An error occured' });
     }
-    return res.json({ pokemon: docs });
+    return res.json({ pokemons: docs });
   });
 };
 
