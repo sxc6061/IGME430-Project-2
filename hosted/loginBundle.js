@@ -2,7 +2,7 @@
 
 var handleLogin = function handleLogin(e) {
   e.preventDefault();
-  $("#petMessage").animate({
+  $("#pokeMessage").animate({
     width: 'hide'
   }, 350);
 
@@ -18,7 +18,7 @@ var handleLogin = function handleLogin(e) {
 
 var handleSignup = function handleSignup(e) {
   e.preventDefault();
-  $('#petMessage').animate({
+  $('#pokeMessage').animate({
     width: 'hide'
   }, 350);
 
@@ -38,7 +38,7 @@ var handleSignup = function handleSignup(e) {
 
 var handleReset = function handleReset(e) {
   e.preventDefault();
-  $('#petMessage').animate({
+  $('#pokeMessage').animate({
     width: 'hide'
   }, 350);
 
