@@ -55,7 +55,7 @@ const PokeList = function(props) {
 const loadPokemonFromServer = () => {
     sendAjax('GET', '/getPokemon', null, (data) => {
         ReactDOM.render(
-            <PokeList pokemon={data.pokemons} />, document.querySelector('#pokemon')
+            <PokeList pokemon={data.pokemon} />, document.querySelector('#pokemon')
         );
     });
 };
