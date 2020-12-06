@@ -4,7 +4,7 @@ const models = require('../models');
 
 const { Poke } = models;
 
-const listPage = (req, res) => {
+const trainerPage = (req, res) => {
   Poke.PokeModel.findByOwner(req.session.account._id, (err, docs) => {
     if (err) {
       console.log(err);
@@ -31,7 +31,7 @@ const savePoke = (req, res) => {
   pokePromise.catch((err) => {
     console.log(err);
     if (err.code === 11000) {
-      return res.status(400).json({ error: 'Pet already exists' });
+      return res.status(400).json({ error: 'Pokemon already captured' });
     }
     return res.status(400).json({ error: 'An error occurred' });
   });
@@ -84,7 +84,7 @@ const callPokemonDB = (request, response) => {
   handlePokeData(req,res,randPoke);
 };
 
-module.exports.listPage = listPage;
+module.exports.trainerPage = trainerPage;
 module.exports.getPokemon = getPokemon;
 module.exports.savePoke = savePoke;
 module.exports.callPokemonDB = callPokemonDB;
