@@ -35,7 +35,7 @@ const savePoke = (req, res) => {
     }
     return res.status(400).json({ error: 'An error occurred' });
   });
-  return petPromise;
+  return pokePromise;
 };
 
 const getPokemon = (request, response) => {
