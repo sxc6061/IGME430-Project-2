@@ -74,7 +74,7 @@ var PokeGen = function PokeGen(props) {
     id: "addToDBForm",
     onSubmit: addPokeToDB,
     name: "pokeGenForm",
-    action: "/savePokeToDB",
+    action: "/catch",
     method: "POST",
     className: "addToDBForm"
   }, /*#__PURE__*/React.createElement("input", {

@@ -16,17 +16,13 @@ const trainerPage = (req, res) => {
     });
 };
 
-const catchPoke = (req, res) => {
-    //get random pokemon by id number
-    //only original 151 pokemon
-    let randPoke = P.getPokemonByName(Math.floor(Math.random() * Math.floor(151)));
-
+const savePoke = (req, res) => {
     const pokeData = {
-        name: randPoke.name,
-        type: randPoke.type,
-        id: randPoke.id,
-        move: randPoke.move,
-        img: randPoke.img,
+        name: req.body.name,
+        type: req.body.type,
+        id: req.body.id,
+        move: req.body.move,
+        img: req.body.img,
         owner: req.session.account._id,
     };
 
@@ -50,13 +46,13 @@ const catchPoke = (req, res) => {
 
 const handlePD = (req, res, pokemonData) => {
     let pokeData;
-    if (petData.photos[0]) {
+    if (petData.sprites[6]) {
         pokeData = {
             name: pokemonData.name,
             type: pokemonData.type,
             id: pokemonData.id,
             move: pokemonData.move,
-            img: pokemonData.sprites[3],
+            img: pokemonData.sprites[6],
       };
     } else {
         pokeData = {
@@ -67,23 +63,32 @@ const handlePD = (req, res, pokemonData) => {
       };
     }
   
-    dataToReturn = JSON.stringify(dataToReturn);
-    return res.json(dataToReturn);
-  };
+    pokeData = JSON.stringify(pokeData);
+    return res.json(pokeData);
+};
 
 const getPokemon = (request, response) => {
     const req = request;
     const res = response;
+    return Poke.PokeModel.findByOwner(req.session.account._id, (err, docs) => {
+        if (err) {
+            console.log(err);
+            return res.status(400).json({ error: 'An error occured' });
+            }
+        return res.json({ pokemon: docs });
+    });
+};
 
-    client.pokemon.search({
-        limit: 100,
-      })
-        .then((response2) => {
-          const rand = Math.round(Math.random() * (100 - 1) + 1);
-          handlePD(req, res, response2.data.pokemon[rand]);
-    }).catch((error) => res.status(400).json({ error: error.message }));
+const callPokemonDB = (request, response) => {
+    const req = request;
+    const res = response;
+
+    //get random pokemon by id number
+    //only original 151 pokemon
+    handlePD(req,res,P.getPokemonByName(Math.floor(Math.random() * Math.floor(151))));
 };
 
 module.exports.trainerPage = trainerPage;
-module.exports.catchPoke = catchPoke;
+module.exports.savePoke = savePoke;
 module.exports.getPokemon = getPokemon;
+module.exports.callPokemonDB = callPokemonDB;
