@@ -30,7 +30,7 @@ const catchPoke = (req, res) => {
         owner: req.session.account._id,
     };
 
-    const newCatch = new Poke.Poke(pokeData);
+    const newCatch = new Poke.PokeModel(pokeData);
 
     const pokePromise = newCatch.save();
 
