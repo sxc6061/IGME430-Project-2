@@ -3,7 +3,7 @@ const mid = require('./middleware');
 
 const router = (app) => {
   app.get('/getToken', mid.requiresSecure, controllers.Account.getToken);
-  app.get('/getPokemon', controllers.Poke.getPokemon);
+  app.get('/getPokemon', mid.requiresLogin, controllers.Poke.getPokemon);
   app.get('/callPokeDB', mid.requiresLogin, controllers.Poke.callPokemonDB);
   app.post('/savePokeToDB', mid.requiresLogin, controllers.Poke.savePoke);
   app.get('/login', mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);
