@@ -2,19 +2,25 @@
 
 var handlePoke = function handlePoke(e) {
   e.preventDefault();
-  sendAjax('POST', '/catch', function () {
+  sendAjax('POST', $('#pokeButton').attr('action'), function () {
     loadPokemonFromServer();
   });
   return false;
 };
 
 var PokeButton = function PokeButton() {
-  return /*#__PURE__*/React.createElement("button", {
+  return /*#__PURE__*/React.createElement("form", {
     id: "pokeButton",
     onClick: handlePoke,
     name: "pokeButton",
+    action: "/catch",
+    method: "POST",
     className: "pokeButton"
-  }, "Who's that Pokemon?");
+  }, /*#__PURE__*/React.createElement("input", {
+    className: "pokemonRoll",
+    type: "submit",
+    value: "Who's that Pokemon?"
+  }));
 };
 
 var PokeList = function PokeList(props) {

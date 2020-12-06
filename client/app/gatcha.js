@@ -1,7 +1,7 @@
 const handlePoke = (e) => {
     e.preventDefault();
 
-    sendAjax('POST', '/catch', function() {
+    sendAjax('POST', $('#pokeButton').attr('action'), function() {
         loadPokemonFromServer();
     });
 
@@ -10,13 +10,15 @@ const handlePoke = (e) => {
 
 const PokeButton = () => {
     return (
-        <button id="pokeButton"
+        <form id="pokeButton"
             onClick={handlePoke}
             name="pokeButton"
+            action="/catch"
+            method="POST"
             className="pokeButton"
             >
-                Who's that Pokemon?
-            </button>
+                <input className="pokemonRoll" type="submit" value="Who's that Pokemon?"/>
+            </form>
     );
 };
 
