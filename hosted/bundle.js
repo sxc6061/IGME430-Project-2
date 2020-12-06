@@ -1,7 +1,12 @@
 "use strict";
 
+var Pokedex = require('pokedex-promise-v2');
+
+var P = new Pokedex();
+
 var handlePoke = function handlePoke(e) {
   e.preventDefault();
+  console.dir(P.getPokemonByName(Math.floor(Math.random() * Math.floor(151))));
   sendAjax('POST', $('#pokeButton').attr('action'), function () {
     loadPokemonFromServer();
   });

@@ -1,6 +1,9 @@
+const Pokedex = require('pokedex-promise-v2');
+const P = new Pokedex();
+
 const handlePoke = (e) => {
     e.preventDefault();
-
+    console.dir(P.getPokemonByName(Math.floor(Math.random() * Math.floor(151))));
     sendAjax('POST', $('#pokeButton').attr('action'), function() {
         loadPokemonFromServer();
     });
