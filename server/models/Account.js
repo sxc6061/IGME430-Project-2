@@ -24,6 +24,26 @@ const AccountSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  birthday: {
+    type: String,
+    required: true,
+  },
+  age: {
+    type: String,
+    required: true,
+  },
+  isPremium: {
+    type: Boolean,
+    required: true,
+  },
+  creditCardNumber: {
+    type: String,
+    required: false,
+  },
+  creditCardNumberSalt: {
+    type: Buffer,
+    required: false,
+  },
   createdDate: {
     type: Date,
     default: Date.now,
@@ -33,6 +53,9 @@ const AccountSchema = new mongoose.Schema({
 AccountSchema.statics.toAPI = (doc) => ({
   // _id is built into your mongo document and is guaranteed to be unique
   username: doc.username,
+  birthday: doc.birthday,
+  isPremium: doc.isPremium,
+  age: doc.age,
   _id: doc._id,
 });
 

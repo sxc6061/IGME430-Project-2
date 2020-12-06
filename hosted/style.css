@@ -1,14 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab&display=swap');
 html, body {
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
+    background-color: #EDC7B7;
 }
 
 #logo {
     height: 40px;
-    width: 40;
+    width: 40px;
     padding-top: 5px;
     float:left;
     border-radius: 8px;
@@ -17,7 +20,12 @@ html, body {
 nav {
     width: 100%;
     height: 50px;
-    background-color: #55acee;
+    background-color: #AC3B61;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    border-radius: 4px;
+    overflow: hidden;
+
 }
 
 nav:nth-child(1) {
@@ -37,21 +45,21 @@ nav:nth-child(1) {
     color: white;
     text-decoration: none;
     padding: 5px;
-    border-radius: 4px;
-    background-color: #55acee;
+    border-radius: 10px;
+    background-color: #AC3B61;
     transition: background-color 0.4s ease;
 }
 
 .navlink a:hover {
     transition: background-color 0.8s ease;
-    background-color: #66bdff;
+    background-color: #8a2f4e;
 }
 
 .mainForm {
     height: 300px;
     width: 350px;
     margin: 0 auto;
-    padding-top: 350px;
+    padding-top: 250px;
     font-size: 1.2em;
 }
 
@@ -61,62 +69,39 @@ nav:nth-child(1) {
 
 .mainForm label {
     display: inline-block;
-    width: 100px;
-    margin-right: 10px;
+    width: 150px;
+    margin-right: 5px;
     text-align: right;
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
-.formSubmit {
-    transition: background-color 0.4s ease;
-    display: block;
-    text-align: center;
-    margin: 0 auto;
-    margin-top: 14px;
-    font-size: 1.2em;
-    width: 100px;
-    background-color: #55acee;
-    border-radius: 2px;
-    border-color: #66acee;
-    padding: 3px 0px;
-    color: white;
-    text-decoration: none;
-}
-
-.formSubmit:link, .formSubmit:visited, .formSubmit:hover, .formSubmit:active {
-    color: white;
-}
-
-.formSubmit:hover {
-    transition: background-color 0.4s ease;
-    background-color: #338acc;
-}
-
-#user, #pass, #pass2 {
+#user, #pass, #pass2,#birthday, #age, #cardNumber {
     text-align: center;
     font-size: 1.1em;
     width: 180px;
-    border-radius: 6px;
+    border-radius: 4px;
+    margin-top: 3px;
 }
 
-#user:focus, #pass:focus, #pass2:focus {
+#user:focus, #pass:focus, #pass2:focus,#birthday:focus, #age:focus, #cardNumber:focus {
     outline: none;
-    box-shadow: 0px 0px 1px 1px #55acee;
+    box-shadow: 0px 0px 1px 1px black;
+
 }
 
-#pikaMessage {
+#petMessage {
     display:none;
-    top: 250px;
-    width: 250px;
-    height: 650px;
+    top: 85%;
+    width: 450px;
+    height: 100px;
     position: absolute;
     z-index: 200;
-    right: 0px;
+    right: 34%;
     overflow: hidden;
 }
 
-#pikaMessage h3 {
-    width: 200px;
+#petMessage h3 {
+    width: 350px;
     position: absolute;
     top: 0px;
     left: 20px;
@@ -135,83 +120,172 @@ nav:nth-child(1) {
     font-style: italic;
 }
 
-#pikachu {
-    z-index: 225;
-    margin-top: -20px;
-    margin-right: 150px;
-    -ms-transform: rotate(310deg);
-    -webkit-transform: rotate(310deg); 
-    transform: rotate(310deg);
+#adSpace{
+    position:absolute;
+    bottom:0;
+    width:100%;
 }
 
-#pokemon {
+#adSpace img{
+    display: block;
+    margin: 0 auto;
+    margin-top: 1em;
+    width:80%;
+    height:4em;
+  
+}
+
+.inputSubmit{
+    transition: background-color 0.4s ease;
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+    font-size: 1.2em;
+    width: 100px;
+    background-color: #AC3B61;
+    border-radius: 10px;
+    border-color: #AC3B61;
+    padding: 3px 10px;
+    color: white;
+    text-decoration: none;
+}
+.inputSubmit:hover {
+    transition: background-color 0.4s ease;
+    background-color: #8a2f4e;
+}
+
+.inputSubmit:active {
+    background-color: #67233a;
+    transform: translateY(4px);
+  }
+
+.inputSubmit:disabled{
+    transition: background-color 0.4s ease;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 1.2em;
+    width: 100px;
+    background-color: #BAB2B5;
+    border-radius: 10px;
+    border-color: #BAB2B5;
+    padding: 3px 10px;
+    color: white;
+    text-decoration: none;
+}
+
+
+#generatorImage{
+    display: block;
+    margin: 0 auto;
+    max-height: 300px;
+    max-width: 300px;
+}
+
+.generatorInfo{
+    font-size: 1.5em;
+    font-weight: 400;
+    text-align: center;
+}
+
+.petInfo{
+    padding: 1em 0;
+    margin:1em auto ;
+    margin-top: 3em;
     width: 40%;
-    min-width: 400px;
-    border: 2px solid #55acee;
-    border-radius: 4px;
-    margin: 0 auto;
-    margin-top: 100px;
+    height: 525px;
+    padding: 1em;
+    justify-content: center;
+    background-color: #AC3B61;
+    border: 2px solid #AC3B61;
+    border-radius: 10px;
 }
 
-.pokemon {
-    width: 95%;
-    margin: 0 auto;
-    margin-top: 2px;
-    margin-bottom: 2px;
-    border: 2px solid #55acee;
-    border-radius: 4px;
-    background-color: #55acee;
+.listImage img{
+    max-width: 100px;
+    max-height: 100px;
+    float: left;
+    padding-bottom: 10px;
+    margin: 0 1.2em;
+}
+.pet{
+    display:flex;
+    align-items:center;
+    width:95%;
     padding: 10px;
     min-height:60px;
     overflow: hidden;
+    margin: 1em 1em;
+    background-color: #AC3B61;
+    border: 2px solid #AC3B61;
+    border-radius: 10px;
 }
 
-.pokemon:hover {
-    transition: border-color 0.2s ease-out;
-    border-color: rgba(255,255,255, 0.8);
-    transition: background-color 2.6s ease-out;
-    background-color: #66bfff;
-}
-
-img.domoFace {
-    margin-left: 25px;
-    margin-right: 10px;
-    height: 50px;
-    width: 50px;
-    border-radius: 4px;
-    margin-top:10px;
-    float:left;
-}
-
-h3.emptyPoke {
-    width: 400px;
-    font-size: 1.5em;
-    margin: 0 auto;
-    text-align: center;
-    margin-top: 18px;
-}
-
-h3.pokeName {
-    float:left;
-    width: 200px;
-    font-weight: bold;
-    padding-left: 65px;
-    font-size: 1.5em;
-}
-
-h3.pokeType {
-    float:right;
+.petListInfo{
+    float: left;
     text-align: left;
-    width: 100px;
-    font-weight: bold;
-    padding-right: 40px;
+    padding-right: 50px;
+}
+.petList{
+    padding-bottom:4em;
+}
+
+
+.accountDetails{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.premiumSignup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.heading{
+    font-family: 'Roboto Slab', serif;
+    margin-top: 1em;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 3.0em;
+}
+.alreadyPremium{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.alreadyPremium b{
+    margin-top: 1em;
     font-size: 1.5em;
 }
-
-.pokemon:first-child {
-    margin-top: 10px;
+.detail{
+    font-size: 1.3em;
 }
-
-.pokemon:last-child {
-    margin-bottom:10px;
+#petGenerator{
+    margin-top: 70px;
+}
+::-webkit-scrollbar {
+    width: 12px;
+  
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    border-radius: 8px;
+  
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.8); 
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.8);
+    
+}
+.loginTop{
+    padding-top: 50px;
 }

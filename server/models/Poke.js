@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 mongoose.Promise = global.Promise;
 const _ = require('underscore');
 
@@ -8,53 +9,47 @@ const convertId = mongoose.Types.ObjectId;
 const setName = (name) => _.escape(name).trim();
 
 const PokeSchema = new mongoose.Schema({
-    //get multiple info for pokemon to add
-    name: {
-        type: String,
-        required: true,
-        set: setName,
-    },
-    type: {
-        type: String,
-        required: true,
-    },
-    id: {
-        type: Number,
-        min: 0,
-        required: true,
-    },
-    move: {
-        type: String,
-        required: true,
-    },
-    img: {
-        type: String,
-        required: false,
-    },
-    trainerId: {
-        type: mongoose.Schema.ObjectId,
-        required: true,
-        ref: 'Account',
-    },
-    captureDate: {
-        type: Date,
-        default: Date.now,
-    },
+  name: {
+    type: String,
+    required: true,
+    trim: true,
+    set: setName,
+  },
+  type: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  id: {
+    type: Number,
+    required: true,
+    trim: true,
+  },
+  move: {
+    type: String,
+    min: 0,
+    required: true,
+  },
+  sprite: {
+    type: String,
+    trim: true,
+    required: false,
+  },
+  owner: {
+    type: mongoose.Schema.ObjectId,
+    required: true,
+    ref: 'Account',
+  },
+  createdData: {
+    type: Date,
+    default: Date.now,
+  },
 });
-
-PokeSchema.statics.toAPI = (doc) => ({
-    name: doc.name,
-    type: doc.type,
-    id: doc.id,
-    move: doc.move,
-});
-
-PokeSchema.statics.findByOwner = (trainerId, callback) => {
-    const search = {
-        trainer: convertId(trainerId),
-    };
-
-    return PokeModel.find(search).select('name type id move img').lean().exec(callback);
+PokeSchema.statics.findByOwner = (ownerId, callback) => {
+  const search = {
+    owner: convertId(ownerId),
+  };
+  return PokeModel.find(search).select('name type id move sprite').lean().exec(callback);
 };
 
 PokeModel = mongoose.model('Poke', PokeSchema);
