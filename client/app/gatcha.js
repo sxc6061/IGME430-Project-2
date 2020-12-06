@@ -1,9 +1,11 @@
 const handlePoke = (e) => {
     e.preventDefault();
 
-    sendAjax('POST', $('#pokeButton').attr('action'), function() {
+    $('#pokeButton').click(function() {
+        $.post('/catch', function(){
         loadPokemonFromServer();
-    });
+        });
+    }, 'json');
 
     return false;
 };
