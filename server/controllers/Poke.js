@@ -1,4 +1,11 @@
 const Pokedex = require('pokedex-promise-v2');
+var options = {
+    protocol: 'json',
+    hostName: 'localhost:443',
+    versionPath: '/api/v2/',
+    cacheLimit: 100 * 1000, // 100s
+    timeout: 5 * 1000 // 5s
+  }
 const P = new Pokedex();
 
 const models = require('../models');
@@ -19,7 +26,7 @@ const trainerPage = (req, res) => {
 const catchPoke = (req, res) => {
     //get random pokemon by id number
     //only original 151 pokemon
-    const randPoke = P.getPokemonByName(Math.floor(Math.random() * Math.floor(151)));
+    let randPoke = P.getPokemonByName(Math.floor(Math.random() * Math.floor(151)));
 
     const pokeData = {
         name: randPoke.name,
