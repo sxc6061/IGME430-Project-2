@@ -46,7 +46,7 @@ const savePoke = (req, res) => {
 
 const handlePD = (req, res, pokemonData) => {
     let pokeData;
-    if (petData.sprites[6]) {
+    if (pokemonData.sprites[6]) {
         pokeData = {
             name: pokemonData.name,
             type: pokemonData.type,
