@@ -1,9 +1,7 @@
 const handlePoke = (e) => {
     e.preventDefault();
 
-    $('#pikaMessage').animate({width:'hide'},350);
-
-    sendAjax('POST', $('#pokeButton').attr('action'), $('#pokeButton').serialize(), function() {
+    sendAjax('POST', $('#pokeButton').attr('action'), function() {
         loadPokemonFromServer();
     });
 
@@ -16,7 +14,7 @@ const PokeButton = () => {
             onClick={handlePoke}
             name="pokeButton"
             action="/catch"
-            method="POST"
+            className="pokeButton"
             >
                 Who's that Pokemon?
             </button>
@@ -27,7 +25,7 @@ const PokeList = function(props) {
     if(props.pokemon.length === 0){
         return(
             <div className="pokeList">
-                <h3 className="emptyPoke">No Pokemon yet, go ahead and roll for some!</h3>
+                <h3 className="emptyPoke">No Pokemon yet, go ahead and catch some!</h3>
             </div>
         );
     } 
