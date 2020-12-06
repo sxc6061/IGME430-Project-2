@@ -53,7 +53,7 @@ const getPokemon = (request, response) => {
 
 const handlePokeData = (req, res, pokeData) => {
   let returnData;
-  if (pokeData.photos[6]) {
+  if (pokeData.sprites[6]) {
     returnData = {
       name: pokeData.name,
       type: pokeData.type,

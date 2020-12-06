@@ -22,13 +22,13 @@ const PokeSchema = new mongoose.Schema({
   },
   id: {
     type: Number,
+    min: 0,
     required: true,
-    trim: true,
   },
   move: {
     type: String,
-    min: 0,
     required: true,
+    trim: true,
   },
   sprite: {
     type: String,
