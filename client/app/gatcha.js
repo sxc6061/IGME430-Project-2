@@ -1,23 +1,78 @@
-const handlePoke = (e) => {
+const generatePokemon = (e) => {
     e.preventDefault();
-    sendAjax('POST', $('#pokeButton').attr('action'), function() {
-        loadPokemonFromServer();
+    sendAjax('GET', $("#pokeGenForm").attr("action"), {}, function (xhr, status, error) {
+        setPokeData(xhr);
     });
-
     return false;
 };
 
-const PokeButton = () => {
+const addPokeToDB = (e) => {
+    e.preventDefault();
+    const data = $("#addToDBForm").serialize()
+    sendAjax('POST', $("#addToDBForm").attr("action"), data,
+        function (xhr, status, error) {
+            loadPokemonFromServer();
+        });
+    return false;
+};
+
+const setPokeData = (data) => {
+    const pokeData = JSON.parse(data);
+
+    document.querySelector('#generatorImage').src = pokeData.sprites[6];
+    document.querySelector('#pokemonToSavePicture').value = pokeData.sprites[6];
+    document.querySelector('#generatorImage').src = "/assets/img/placeholder_image.png";
+    document.querySelector('#pokeToSavePicture').value = "/assets/img/placeholder_image.png";
+    document.querySelector('#pokeGeneratorName').innerHTML = `<b>Name:</b> ${pokeData.name}`;
+    document.querySelector('#pokeToSaveName').value = `${pokeData.name}`;
+    document.querySelector('#pokeGeneratorType').innerHTML = `<b>Type:</b> ${pokeData.animalType}`;
+    document.querySelector('#pokeToSaveType').value = `${pokeData.type}`;
+    document.querySelector('#petGeneratorID').innerHTML = `<b>ID #:</b> ${pokeData.id}`;
+    document.querySelector('#petToSaveBreed').value = `${pokeData.id}`;
+    document.querySelector('#petGeneratorAge').innerHTML = `<b>Move:</b> ${pokeData.move}`;
+    document.querySelector('#petToSaveAge').value = `${pokeData.move}`;
+};
+
+const PokeGen = function (props) {
     return (
-        <form id="pokeButton"
-            onClick={handlePoke}
-            name="pokeButton"
-            action="/catch"
-            method="POST"
-            className="pokeButton"
+        <div>
+            <h1 className="heading">Pokemon Generator</h1>
+            <div className="pokeGen">
+                <div className="petInfo">
+                    <img id="generatorImage"></img>
+                    <p className="generatorInfo" id="pokeGenName"></p>
+                    <p className="generatorInfo" id="pokeGenType"></p>
+                    <p className="generatorInfo" id="pokeGenID"></p>
+                    <p className="generatorInfo" id="pokeGenMove"></p>
+                </div>
+                <form id="pokeGenForm"
+                    onSubmit={generatePokemon}
+                    name="pokeGenForm"
+                    action="/callPokeDB"
+                    method="GET"
+                    className="pokeGenForm"
+                >
+                    <input type="hidden" name="_csrf" value={props.csrf} />
+                    <input id="genPoke" className="genButton" type="submit" value="generate" />
+                </form>
+
+            </div>
+            <form
+                id="addToDBForm"
+                onSubmit={addPokeToDB}
+                name="pokeGenForm"
+                action="/savePokeToDB"
+                method="POST"
+                className="addToDBForm"
             >
-                <input className="pokemonRoll" type="submit" value="Who's that Pokemon?"/>
+                <input id="pokeToSaveName" type="hidden" name="name" value="" />
+                <input id="pokeToSaveType" type="hidden" name="type" value="" />
+                <input id="pokeToSaveID" type="hidden" name="id" value="" />
+                <input id="pokeToSaveMove" type="hidden" name="move" value="" />
+                <input id="pokeToSaveIMG" type="hidden" name="img" value="" />
+                <input id="csurf" type="hidden" name="_csrf" value={props.csrf} />
             </form>
+        </div>
     );
 };
 
@@ -45,29 +100,45 @@ const PokeList = function(props) {
 
     return (
         <div className="pokeList">
+            <h1 className="heading">Captured Pokemon</h1>
             {pokeNodes}
         </div>
     );
 };
 
+const createPokeGenerator = (csrf) => {
+    document.querySelector('#errorMessage').innerHTML = "";
+    ReactDOM.render(
+        <PokeGen csrf={csrf} />,
+        document.querySelector("#pokeGen")
+    );
+};
+
 const loadPokemonFromServer = () => {
+    document.querySelector('#errorMessage').innerHTML = "";
     sendAjax('GET', '/getPokemon', null, (data) => {
         ReactDOM.render(
-            <PokeList pokemon={data.pokemon} />, document.querySelector('#pokemon')
+            <PokeList pokemon={data.pokemon} />, document.querySelector("#pokeGen")
         );
     });
 };
 
 const setup = function(csrf) {
-    ReactDOM.render(
-        <PokeButton csrf={csrf}/>, document.querySelector('#catchPokemon')
-    );
+    const generateButton = document.querySelector("#generateButton");
+    const pokeListButton = document.querySelector("#listButton");
 
-    ReactDOM.render(
-        <PokeList pokemon={[]}/>, document.querySelector('#pokemon')
-    );
+    generateButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        createPokeGenerator(csrf);
+        return false;
+    });
+    pokeListButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        loadPokemonFromServer();
+        return false;
+    });
 
-    loadPokemonFromServer();
+    createPokeGenerator(csrf);
 }
 
 const getToken = () => {

@@ -1,11 +1,4 @@
 const Pokedex = require('pokedex-promise-v2');
-var options = {
-    protocol: 'json',
-    hostName: 'localhost:443',
-    versionPath: '/api/v2/',
-    cacheLimit: 100 * 1000, // 100s
-    timeout: 5 * 1000 // 5s
-  }
 const P = new Pokedex();
 
 const models = require('../models');
@@ -55,18 +48,40 @@ const catchPoke = (req, res) => {
     return pokePromise;
 };
 
+const handlePD = (req, res, pokemonData) => {
+    let pokeData;
+    if (petData.photos[0]) {
+        pokeData = {
+            name: pokemonData.name,
+            type: pokemonData.type,
+            id: pokemonData.id,
+            move: pokemonData.move,
+            img: pokemonData.sprites[3],
+      };
+    } else {
+        pokeData = {
+            name: pokemonData.name,
+            type: pokemonData.type,
+            id: pokemonData.id,
+            move: pokemonData.move,
+      };
+    }
+  
+    dataToReturn = JSON.stringify(dataToReturn);
+    return res.json(dataToReturn);
+  };
+
 const getPokemon = (request, response) => {
     const req = request;
     const res = response;
 
-    return Poke.PokeModel.findByOwner(req.session.account._id, (err, docs) => {
-        if (err) {
-            console.log(err);
-            return res.status(400).json({ error: 'An error occurred' });
-        }
-
-        return res.json({ pokemon: docs });
-    });
+    client.pokemon.search({
+        limit: 100,
+      })
+        .then((response2) => {
+          const rand = Math.round(Math.random() * (100 - 1) + 1);
+          handlePD(req, res, response2.data.pokemon[rand]);
+    }).catch((error) => res.status(400).json({ error: error.message }));
 };
 
 module.exports.trainerPage = trainerPage;

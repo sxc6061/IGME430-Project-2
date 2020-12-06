@@ -4,13 +4,14 @@ mongoose.Promise = global.Promise;
 let PokeModel = {};
 
 const convertId = mongoose.Types.ObjectId;
-
+const setName = (name) => _.escape(name).trim();
 
 const PokeSchema = new mongoose.Schema({
     //get multiple info for pokemon to add
     name: {
         type: String,
         required: true,
+        set: setName,
     },
     type: {
         type: String,
@@ -27,7 +28,7 @@ const PokeSchema = new mongoose.Schema({
     },
     img: {
         type: String,
-        required: true,
+        required: false,
     },
     trainerId: {
         type: mongoose.Schema.ObjectId,
@@ -52,7 +53,7 @@ PokeSchema.statics.findByOwner = (trainerId, callback) => {
         trainer: convertId(trainerId),
     };
 
-    return PokeModel.find(search).select('name type id move').lean().exec(callback);
+    return PokeModel.find(search).select('name type id move img').lean().exec(callback);
 };
 
 PokeModel = mongoose.model('Poke', PokeSchema);
