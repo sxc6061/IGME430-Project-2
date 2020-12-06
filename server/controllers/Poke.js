@@ -19,7 +19,7 @@ const trainerPage = (req, res) => {
 const catchPoke = (req, res) => {
     //get random pokemon by id number
     //only original 151 pokemon
-   const randPoke = P.getPokemonByName(Math.floor(Math.random() * Math.floor(151)));
+    const randPoke = P.getPokemonByName(Math.floor(Math.random() * Math.floor(151)));
 
     const pokeData = {
         name: randPoke.name,

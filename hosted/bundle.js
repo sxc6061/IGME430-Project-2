@@ -2,10 +2,7 @@
 
 var handlePoke = function handlePoke(e) {
   e.preventDefault();
-  $('#pikaMessage').animate({
-    width: 'hide'
-  }, 350);
-  sendAjax('POST', $('#pokeButton').attr('action'), $('#pokeButton').serialize(), function () {
+  sendAjax('POST', '/catch', function () {
     loadPokemonFromServer();
   });
   return false;
@@ -16,8 +13,7 @@ var PokeButton = function PokeButton() {
     id: "pokeButton",
     onClick: handlePoke,
     name: "pokeButton",
-    action: "/catch",
-    method: "POST"
+    className: "pokeButton"
   }, "Who's that Pokemon?");
 };
 
@@ -27,7 +23,7 @@ var PokeList = function PokeList(props) {
       className: "pokeList"
     }, /*#__PURE__*/React.createElement("h3", {
       className: "emptyPoke"
-    }, "No Pokemon yet, go ahead and roll for some!"));
+    }, "No Pokemon yet, go ahead and catch some!"));
   }
 
   var pokeNodes = props.pokemon.map(function (pokemon) {
@@ -60,7 +56,7 @@ var PokeList = function PokeList(props) {
 var loadPokemonFromServer = function loadPokemonFromServer() {
   sendAjax('GET', '/getPokemon', null, function (data) {
     ReactDOM.render( /*#__PURE__*/React.createElement(PokeList, {
-      pokemon: data.pokemons
+      pokemon: data.pokemon
     }), document.querySelector('#pokemon'));
   });
 };

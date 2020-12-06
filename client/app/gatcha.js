@@ -1,11 +1,9 @@
 const handlePoke = (e) => {
     e.preventDefault();
 
-    $('#pokeButton').click(function() {
-        $.post('/catch', function(){
+    sendAjax('POST', '/catch', function() {
         loadPokemonFromServer();
-        });
-    }, 'json');
+    });
 
     return false;
 };
@@ -15,7 +13,6 @@ const PokeButton = () => {
         <button id="pokeButton"
             onClick={handlePoke}
             name="pokeButton"
-            action="/catch"
             className="pokeButton"
             >
                 Who's that Pokemon?
