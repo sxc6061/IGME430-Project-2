@@ -19,8 +19,7 @@ const dbURL = process.env.MONGODB_URI || 'mongodb://localhost/PokemonGatcha';
 const moongooseOptions = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true,
-}
+};
 
 mongoose.connect(dbURL, moongooseOptions, (err) => {
     if (err){
@@ -31,8 +30,8 @@ mongoose.connect(dbURL, moongooseOptions, (err) => {
 
 let redisURL = {
     hostname: 'redis-13818.c241.us-east-1-4.ec2.cloud.redislabs.com',
-    port: '13818',
-}
+    port: 13818,
+};
 
 let redisPASS = 'ZX5HroH35NRU7V0sdI0eR7Zs28vfZt82';
 if (process.env.REDISCLOUD_URL) {
