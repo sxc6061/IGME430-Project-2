@@ -69,7 +69,7 @@ const setup = function(csrf) {
         <PokeList pokemon={[]}/>, document.querySelector('#pokemon')
     );
 
-    loadDomosFromServer();
+    loadPokemonFromServer();
 }
 
 const getToken = () => {

@@ -72,7 +72,7 @@ var setup = function setup(csrf) {
   ReactDOM.render( /*#__PURE__*/React.createElement(PokeList, {
     pokemon: []
   }), document.querySelector('#pokemon'));
-  loadDomosFromServer();
+  loadPokemonFromServer();
 };
 
 var getToken = function getToken() {
