@@ -14,7 +14,7 @@ const csrf = require('csurf');
 
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
 
-const dbURL = process.env.MONGODB_URI || 'mongodb://localhost/igme430-project-2';
+const dbURL = process.env.MONGODB_URI || 'mongodb://localhost/PokemonGatcha';
 
 const mongooseOptions = {
   useNewUrlParser: true,
@@ -28,7 +28,7 @@ mongoose.connect(dbURL, mongooseOptions, (err) => {
 });
 let redisURL = {
   hostname: 'redis-13818.c241.us-east-1-4.ec2.cloud.redislabs.com',
-  port: 19669,
+  port: 13818,
 };
 let redisPASS = 'ZX5HroH35NRU7V0sdI0eR7Zs28vfZt82';
 if (process.env.REDISCLOUD_URL) {
