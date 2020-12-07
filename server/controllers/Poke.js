@@ -1,12 +1,10 @@
-var Pokedex = require('pokedex-promise-v2');
-var P = new Pokedex();
+const Pokedex = require('pokedex-promise-v2');
+const P = new Pokedex();
 const models = require('../models');
 
 const Poke = models.Poke;
 
 const trainerPage = (req, res) => {
-  let randPoke = P.getPokemonByName(Math.floor(Math.random() * Math.floor(151)));
-  console.dir(randPoke);
   Poke.PokeModel.findByOwner(req.session.account._id, (err, docs) => {
     if (err) {
       console.log(err);

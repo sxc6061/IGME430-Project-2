@@ -1,6 +1,9 @@
 const models = require('../models');
 const { AccountModel } = require('../models/Account');
 
+const Pokedex = require('pokedex-promise-v2');
+const P = new Pokedex();
+
 const { Account } = models;
 
 const loginPage = (req, res) => {
@@ -157,6 +160,10 @@ const signupPremium = (req, res) => {
 const getAccountDetails = (request, response) => {
   const req = request;
   const res = response;
+
+  let randPoke = P.getPokemonByName(Math.floor(Math.random() * Math.floor(151)));
+  console.dir(randPoke);
+
   res.json(req.session.account);
 };
 
