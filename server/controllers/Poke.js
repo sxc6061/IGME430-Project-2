@@ -56,17 +56,17 @@ const handlePokeData = (req, res, pokeData) => {
   if (pokeData.sprites[6]) {
     returnData = {
       name: pokeData.name,
-      type: pokeData.type,
+      type: pokeData.types,
       id: pokeData.id,
-      move: pokeData.move,
-      photos: pokeData.sprites[6],
+      move: pokeData.moves[0],
+      sprite: pokeData.sprites[6],
     };
   } else {
     returnData = {
       name: pokeData.name,
-      type: pokeData.type,
+      type: pokeData.types,
       id: pokeData.id,
-      move: pokeData.move,
+      move: pokeData.moves[0],
     };
   }
 
