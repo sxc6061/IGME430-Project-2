@@ -118,7 +118,7 @@ const PokeList = function (props) {
     const pokeNodes = props.pokemons.map(function (pokemon) {
         return (
             <div key={pokemon._id} className="poke">
-                <div className="listImage"><img src={pokemon.sprite} alt="Sprite of Pokemon" className="pokeSprite" /></div>
+                <div className="listImage"><img src={pokemon.sprites} alt="Sprite of Pokemon" className="pokeSprite" /></div>
                 <div className="listInfo">
                     <h3 className="pokeListInfo">Name: {pokemon.name}</h3>
                     <h3 className="pokeListInfo">Type: {pokemon.type}</h3>
