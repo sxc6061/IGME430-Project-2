@@ -19,7 +19,7 @@ const savePoke = (req, res) => {
     type: req.body.type,
     id: req.body.id,
     move: req.body.move,
-    sprite: req.body.sprites[6],
+    sprite: req.body.sprites,
     owner: req.session.account._id,
   };
   const newPoke = new Poke.PokeModel(pokeData);

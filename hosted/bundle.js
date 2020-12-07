@@ -103,7 +103,7 @@ var PokeGenerator = function PokeGenerator(props) {
   }))), /*#__PURE__*/React.createElement("form", {
     id: "addToDBForm",
     onSubmit: addPokeToDB,
-    name: "pokeGenerateForm",
+    name: "addToDBForm",
     action: "/savePokeToDB",
     method: "POST",
     className: "addToDBForm"

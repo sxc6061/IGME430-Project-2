@@ -89,7 +89,7 @@ const PokeGenerator = function (props) {
             <form
                 id="addToDBForm"
                 onSubmit={addPokeToDB}
-                name="pokeGenerateForm"
+                name="addToDBForm"
                 action="/savePokeToDB"
                 method="POST"
                 className="addToDBForm"
