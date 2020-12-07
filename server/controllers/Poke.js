@@ -78,13 +78,11 @@ const callPokemonDB = (request, response) => {
   const req = request;
   const res = response;
 
-  let randPoke = {};
-
   //get random pokemon by id number
   //only original 151 pokemon
   P.getPokemonByName(Math.floor(Math.random() * Math.floor(151)))
     .then(function(response) {
-      return handlePokeData(req,res,randPoke);
+      return handlePokeData(req,res,response);
     })
     .catch(function(error) {
       console.log(error);
