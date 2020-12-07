@@ -3,7 +3,7 @@
 var generatePokemon = function generatePokemon(e) {
   e.preventDefault();
   sendAjax('GET', $("#pokeGenerateForm").attr("action"), {}, function (xhr, status, error) {
-    setPetData(xhr);
+    setPokeData(xhr);
   });
   return false;
 };
@@ -160,7 +160,7 @@ var PokeList = function PokeList(props) {
   var pokeNodes = props.pokemon.map(function (pokemon) {
     return /*#__PURE__*/React.createElement("div", {
       key: pokemon._id,
-      className: "pet"
+      className: "poke"
     }, /*#__PURE__*/React.createElement("div", {
       className: "listImage"
     }, /*#__PURE__*/React.createElement("img", {
@@ -264,7 +264,7 @@ var AlreadyPremium = function AlreadyPremium() {
 var createPokeGenerator = function createPokeGenerator(csrf) {
   document.querySelector('#errorMessage').innerHTML = "";
   checkIfAdFree();
-  ReactDOM.render( /*#__PURE__*/React.createElement(PetGenerator, {
+  ReactDOM.render( /*#__PURE__*/React.createElement(PokeGenerator, {
     csrf: csrf
   }), document.querySelector("#pokeGenerator"));
 };
@@ -344,20 +344,20 @@ $(document).ready(function () {
 
 var handleError = function handleError(message) {
   $('#errorMessage').text(message);
-  $('#petMessage').animate({
+  $('#pokeMessage').animate({
     width: 'toggle'
   }, 350);
 };
 
 var handleLoginError = function handleLoginError(message) {
   $('#loginErrorMessage').text(message);
-  $('#petMessage').animate({
+  $('#pokeMessage').animate({
     width: 'toggle'
   }, 350);
 };
 
 var redirect = function redirect(response) {
-  $('#petMessage').animate({
+  $('#pokeMessage').animate({
     width: 'hide'
   }, 350);
   window.location = response.redirect;

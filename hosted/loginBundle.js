@@ -238,20 +238,20 @@ $(document).ready(function () {
 
 var handleError = function handleError(message) {
   $('#errorMessage').text(message);
-  $('#petMessage').animate({
+  $('#pokeMessage').animate({
     width: 'toggle'
   }, 350);
 };
 
 var handleLoginError = function handleLoginError(message) {
   $('#loginErrorMessage').text(message);
-  $('#petMessage').animate({
+  $('#pokeMessage').animate({
     width: 'toggle'
   }, 350);
 };
 
 var redirect = function redirect(response) {
-  $('#petMessage').animate({
+  $('#pokeMessage').animate({
     width: 'hide'
   }, 350);
   window.location = response.redirect;

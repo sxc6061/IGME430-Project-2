@@ -1,13 +1,13 @@
 const handleError= (message)=>{
     $('#errorMessage').text(message);
-    $('#petMessage').animate({width:'toggle'},350);
+    $('#pokeMessage').animate({width:'toggle'},350);
 };
 const handleLoginError= (message)=>{
     $('#loginErrorMessage').text(message);
-    $('#petMessage').animate({width:'toggle'},350);
+    $('#pokeMessage').animate({width:'toggle'},350);
 };
 const redirect= (response)=>{
-    $('#petMessage').animate({width:'hide'},350);
+    $('#pokeMessage').animate({width:'hide'},350);
     window.location = response.redirect;
 };
 

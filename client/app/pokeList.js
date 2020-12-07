@@ -3,7 +3,7 @@
 const generatePokemon = (e) => {
     e.preventDefault();
     sendAjax('GET', $("#pokeGenerateForm").attr("action"), {}, function (xhr, status, error) {
-        setPetData(xhr);
+        setPokeData(xhr);
     });
     return false;
 };
@@ -122,7 +122,7 @@ const PokeList = function (props) {
     };
     const pokeNodes = props.pokemon.map(function (pokemon) {
         return (
-            <div key={pokemon._id} className="pet">
+            <div key={pokemon._id} className="poke">
                 <div className="listImage"><img src={pokemon.sprite} alt="Sprite of Pokemon" className="pokeSprite" /></div>
                 <div className="listInfo">
                     <h3 className="pokeListInfo">Name: {pokemon.name}</h3>
@@ -210,7 +210,7 @@ const createPokeGenerator = (csrf) => {
     document.querySelector('#errorMessage').innerHTML = "";
     checkIfAdFree();
     ReactDOM.render(
-        <PetGenerator csrf={csrf} />,
+        <PokeGenerator csrf={csrf} />,
         document.querySelector("#pokeGenerator")
     );
 };
