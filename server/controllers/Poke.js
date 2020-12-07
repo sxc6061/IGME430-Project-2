@@ -10,8 +10,6 @@ const trainerPage = (req, res) => {
       console.log(err);
       return res.status(400).json({ error: 'An error occurred' });
     }
-    let randPoke = P.getPokemonByName(Math.floor(Math.random() * Math.floor(151)));
-    console.dir(randPoke);
     return res.render('app', { csrfToken: req.csrfToken(), pokemons: docs });
   });
 };
@@ -20,8 +18,8 @@ const savePoke = (req, res) => {
     name: req.body.name,
     type: req.body.type,
     id: req.body.id,
-    picture: req.body.picture,
-    age: req.body.age,
+    move: req.body.move,
+    sprite: req.body.sprites[6],
     owner: req.session.account._id,
   };
   const newPoke = new Poke.PokeModel(pokeData);
