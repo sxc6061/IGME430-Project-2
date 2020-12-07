@@ -48,7 +48,7 @@ app.use('/assets', express.static(path.resolve(`${__dirname}/../hosted/`)));
 app.disable('x-powered-by');
 app.use(cookieParser());
 
-app.use(favicon(`${__dirname}/../hosted/assets/favicon.png`));
+app.use(favicon(`${__dirname}/../hosted/img/favicon.png`));
 app.use(compression());
 app.use(bodyParser.urlencoded({
   extended: true,
