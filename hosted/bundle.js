@@ -163,7 +163,7 @@ var PokeList = function PokeList(props) {
     }, /*#__PURE__*/React.createElement("div", {
       className: "listImage"
     }, /*#__PURE__*/React.createElement("img", {
-      src: pokemon.sprites,
+      src: pokemon.sprite,
       alt: "Sprite of Pokemon",
       className: "pokeSprite"
     })), /*#__PURE__*/React.createElement("div", {
