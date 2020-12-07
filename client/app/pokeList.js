@@ -8,8 +8,7 @@ const generatePokemon = (e) => {
 
 const addPokeToDB = (e) => {
     e.preventDefault();
-    const data = $("#addToDBForm").serialize()
-    sendAjax('POST', $("#addToDBForm").attr("action"), data,
+    sendAjax('POST', $("#addToDBForm").attr("action"), $("#addToDBForm").serialize(),
         function (xhr, status, error) {
             loadPokemonFromServer();
         });
@@ -53,8 +52,8 @@ const setPokeData = (data) => {
     }
     document.querySelector('#pokeGeneratorName').innerHTML = `<b>Name:</b> ${pokeData.name}`;
     document.querySelector('#pokeToSaveName').value = `${pokeData.name}`;
-    document.querySelector('#pokeGeneratorType').innerHTML = `<b>Type:</b> ${pokeData.types}`;
-    document.querySelector('#pokeToSaveType').value = `${pokeData.types}`;
+    document.querySelector('#pokeGeneratorType').innerHTML = `<b>Type:</b> ${pokeData.types[0].name}`;
+    document.querySelector('#pokeToSaveType').value = `${pokeData.types[0].name}`;
     document.querySelector('#pokeGeneratorID').innerHTML = `<b>ID:</b> ${pokeData.id}`;
     document.querySelector('#pokeToSaveID').value = `${pokeData.id}`;
     document.querySelector('#pokeGeneratorMove').innerHTML = `<b>Move:</b> ${pokeData.moves[0].move.name}`;

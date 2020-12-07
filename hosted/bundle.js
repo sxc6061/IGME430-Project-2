@@ -10,8 +10,7 @@ var generatePokemon = function generatePokemon(e) {
 
 var addPokeToDB = function addPokeToDB(e) {
   e.preventDefault();
-  var data = $("#addToDBForm").serialize();
-  sendAjax('POST', $("#addToDBForm").attr("action"), data, function (xhr, status, error) {
+  sendAjax('POST', $("#addToDBForm").attr("action"), $("#addToDBForm").serialize(), function (xhr, status, error) {
     loadPokemonFromServer();
   });
   return false;
@@ -55,8 +54,8 @@ var setPokeData = function setPokeData(data) {
 
   document.querySelector('#pokeGeneratorName').innerHTML = "<b>Name:</b> ".concat(pokeData.name);
   document.querySelector('#pokeToSaveName').value = "".concat(pokeData.name);
-  document.querySelector('#pokeGeneratorType').innerHTML = "<b>Type:</b> ".concat(pokeData.types);
-  document.querySelector('#pokeToSaveType').value = "".concat(pokeData.types);
+  document.querySelector('#pokeGeneratorType').innerHTML = "<b>Type:</b> ".concat(pokeData.types[0].name);
+  document.querySelector('#pokeToSaveType').value = "".concat(pokeData.types[0].name);
   document.querySelector('#pokeGeneratorID').innerHTML = "<b>ID:</b> ".concat(pokeData.id);
   document.querySelector('#pokeToSaveID').value = "".concat(pokeData.id);
   document.querySelector('#pokeGeneratorMove').innerHTML = "<b>Move:</b> ".concat(pokeData.moves[0].move.name);
