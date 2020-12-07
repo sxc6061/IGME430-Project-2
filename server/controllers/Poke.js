@@ -75,8 +75,10 @@ const handlePokeData = (req, res, pokeData) => {
 };
 
 const callPokemonDB = (request, response) => {
-  //const req = request;
-  //const res = response;
+  const req = request;
+  const res = response;
+
+  let randPoke = {};
 
   //get random pokemon by id number
   //only original 151 pokemon
@@ -88,7 +90,7 @@ const callPokemonDB = (request, response) => {
       console.log(error);
     }
   });
-  //return handlePokeData(req,res,randPoke);
+  return handlePokeData(req,res,randPoke);
 };
 
 module.exports.trainerPage = trainerPage;
