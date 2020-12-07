@@ -1,5 +1,3 @@
-
-
 const generatePokemon = (e) => {
     e.preventDefault();
     sendAjax('GET', $("#pokeGenerateForm").attr("action"), {}, function (xhr, status, error) {

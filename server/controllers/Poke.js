@@ -10,6 +10,8 @@ const trainerPage = (req, res) => {
       console.log(err);
       return res.status(400).json({ error: 'An error occurred' });
     }
+    let randPoke = P.getPokemonByName(Math.floor(Math.random() * Math.floor(151)));
+    console.dir(randPoke);
     return res.render('app', { csrfToken: req.csrfToken(), pokemons: docs });
   });
 };
@@ -81,7 +83,6 @@ const callPokemonDB = (request, response) => {
   //get random pokemon by id number
   //only original 151 pokemon
   let randPoke = P.getPokemonByName(Math.floor(Math.random() * Math.floor(151)));
-  console.ldir(randPoke);
   handlePokeData(req,res,randPoke);
 };
 
