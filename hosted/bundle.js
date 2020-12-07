@@ -139,7 +139,7 @@ var PokeGenerator = function PokeGenerator(props) {
     name: "_csrf",
     value: props.csrf
   }), /*#__PURE__*/React.createElement("input", {
-    id: "savePoke",
+    id: "savePokemon",
     className: "inputSubmit",
     type: "submit",
     value: "Catch Pokemon",

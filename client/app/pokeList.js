@@ -101,7 +101,7 @@ const PokeGenerator = function (props) {
                 <input id="pokeToSaveSprite" type="hidden" name="sprite" value="" />
                 <input id="pokeToSaveMove" type="hidden" name="move" value="" />
                 <input id="csurf" type="hidden" name="_csrf" value={props.csrf} />
-                <input id="savePoke" className="inputSubmit" type="submit" value="Catch Pokemon" disabled />
+                <input id="savePokemon" className="inputSubmit" type="submit" value="Catch Pokemon" disabled />
             </form>
         </div>
     );
