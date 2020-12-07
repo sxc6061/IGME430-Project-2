@@ -43,7 +43,7 @@ const checkIfAdFree = () => {
 const setPokeData = (data) => {
     const pokeData = JSON.parse(data);
 
-    if (pokeData.sprite) {
+    if (pokeData.sprites) {
         document.querySelector('#generatorImage').src = pokeData.sprites;
         document.querySelector('#pokeToSaveSprite').value = pokeData.sprites;
     } else {
