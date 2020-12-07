@@ -44,20 +44,20 @@ const setPokeData = (data) => {
     const pokeData = JSON.parse(data);
 
     if (pokeData.sprite) {
-        document.querySelector('#generatorImage').src = pokeData.sprites[6];
-        document.querySelector('#pokeToSaveSprite').value = pokeData.sprites[6];
+        document.querySelector('#generatorImage').src = pokeData.sprites;
+        document.querySelector('#pokeToSaveSprite').value = pokeData.sprites;
     } else {
         document.querySelector('#generatorImage').src = "/assets/img/placeholder_image.png";
         document.querySelector('#pokeToSaveSprite').value = "/assets/img/placeholder_image.png";
     }
     document.querySelector('#pokeGeneratorName').innerHTML = `<b>Name:</b> ${pokeData.name}`;
     document.querySelector('#pokeToSaveName').value = `${pokeData.name}`;
-    document.querySelector('#pokeGeneratorType').innerHTML = `<b>Type:</b> ${pokeData.types[0].name}`;
-    document.querySelector('#pokeToSaveType').value = `${pokeData.types[0].name}`;
+    document.querySelector('#pokeGeneratorType').innerHTML = `<b>Type:</b> ${pokeData.type}`;
+    document.querySelector('#pokeToSaveType').value = `${pokeData.type}`;
     document.querySelector('#pokeGeneratorID').innerHTML = `<b>ID:</b> ${pokeData.id}`;
     document.querySelector('#pokeToSaveID').value = `${pokeData.id}`;
-    document.querySelector('#pokeGeneratorMove').innerHTML = `<b>Move:</b> ${pokeData.moves[0].move.name}`;
-    document.querySelector('#pokeToSaveMove').value = `${pokeData.moves[0]}`;
+    document.querySelector('#pokeGeneratorMove').innerHTML = `<b>Move:</b> ${pokeData.move}`;
+    document.querySelector('#pokeToSaveMove').value = `${pokeData.move}`;
     document.querySelector('#savePokemon').disabled = false;
 };
 

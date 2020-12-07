@@ -64,12 +64,12 @@ const handlePokeData = (req, res, pokeData) => {
   } else {
     returnData = {
       name: pokeData.name,
-      type: pokeData.types,
+      type: pokeData.types[0].type.name,
       id: pokeData.id,
-      move: pokeData.moves,
+      move: pokeData.moves[0].move.name,
     };
   }
-  console.dir(returnData);
+  console.log(returnData);
   returnData = JSON.stringify(returnData);
   return res.json(returnData);
 };
