@@ -53,20 +53,20 @@ const getPokemon = (request, response) => {
 
 const handlePokeData = (req, res, pokeData) => {
   let returnData;
-  if (pokeData.sprites[6]) {
+  if (pokeData.sprites) {
     returnData = {
       name: pokeData.name,
-      type: pokeData.types,
+      type: pokeData.types.type[0].name,
       id: pokeData.id,
-      move: pokeData.moves[0],
-      sprite: pokeData.sprites[6],
+      move: pokeData.moves[0].move.name,
+      sprite: pokeData.sprites.front_default,
     };
   } else {
     returnData = {
       name: pokeData.name,
-      type: pokeData.types,
+      type: pokeData.types.type[0].name,
       id: pokeData.id,
-      move: pokeData.moves[0],
+      move: pokeData.moves[0].move.name,
     };
   }
 
