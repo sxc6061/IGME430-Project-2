@@ -58,7 +58,7 @@ const handlePokeData = (req, res, pokeData) => {
       name: pokeData.name,
       type: pokeData.types,
       id: pokeData.id,
-      move: pokeData.moves[0],
+      move: pokeData.moves[0].name,
       sprite: pokeData.sprites[6],
     };
   } else {
@@ -66,7 +66,7 @@ const handlePokeData = (req, res, pokeData) => {
       name: pokeData.name,
       type: pokeData.type,
       id: pokeData.id,
-      move: pokeData.moves[0],
+      move: pokeData.moves[0].name,
     };
   }
 
