@@ -58,15 +58,14 @@ const setPokeData = (data) => {
     document.querySelector('#pokeGeneratorType').innerHTML = `<b>Type:</b> ${pokeData.type}`;
     document.querySelector('#pokeToSaveType').value = `${pokeData.type}`;
     document.querySelector('#pokeGeneratorID').innerHTML = `<b>ID:</b> ${pokeData.id}`;
-    document.querySelector('#pokeToSaveBreed').value = `${pokeData.id}`;
+    document.querySelector('#pokeToSaveID').value = `${pokeData.id}`;
     document.querySelector('#pokeGeneratorMove').innerHTML = `<b>Move:</b> ${pokeData.move}`;
     document.querySelector('#pokeToSaveMove').value = `${pokeData.move}`;
     document.querySelector('#savePokemon').disabled = false;
 };
 
 
-const PokeGen = function (props) {
-
+const PokeGenerator = function (props) {
     return (
         <div>
             <h1 className="heading">Who's that Pokemon</h1>
@@ -100,13 +99,12 @@ const PokeGen = function (props) {
             >
                 <input id="pokeToSaveName" type="hidden" name="name" value="" />
                 <input id="pokeToSaveType" type="hidden" name="type" value="" />
-                <input id="pokeToSaveBreed" type="hidden" name="id" value="" />
+                <input id="pokeToSaveID" type="hidden" name="id" value="" />
                 <input id="pokeToSaveSprite" type="hidden" name="sprite" value="" />
                 <input id="pokeToSaveMove" type="hidden" name="move" value="" />
                 <input id="csurf" type="hidden" name="_csrf" value={props.csrf} />
                 <input id="savePoke" className="inputSubmit" type="submit" value="Catch Pokemon" disabled />
             </form>
-
         </div>
     );
 };
@@ -210,8 +208,7 @@ const createPokeGenerator = (csrf) => {
     document.querySelector('#errorMessage').innerHTML = "";
     checkIfAdFree();
     ReactDOM.render(
-        <PokeGenerator csrf={csrf} />,
-        document.querySelector("#pokeGenerator")
+        <PokeGenerator csrf={csrf} />, document.querySelector("#pokeGenerator")
     );
 };
 
@@ -230,7 +227,7 @@ const loadPokemonFromServer = () => {
     checkIfAdFree();
     sendAjax('GET', '/getPokemon', null, (data) => {
         ReactDOM.render(
-            <PokeList pokemon={data.pokemon} />, document.querySelector("#pokeGenerator")
+            <PokeList pokemons={data.pokemons} />, document.querySelector("#pokeGenerator")
         );
     });
 };

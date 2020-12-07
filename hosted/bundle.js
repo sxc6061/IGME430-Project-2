@@ -58,13 +58,13 @@ var setPokeData = function setPokeData(data) {
   document.querySelector('#pokeGeneratorType').innerHTML = "<b>Type:</b> ".concat(pokeData.type);
   document.querySelector('#pokeToSaveType').value = "".concat(pokeData.type);
   document.querySelector('#pokeGeneratorID').innerHTML = "<b>ID:</b> ".concat(pokeData.id);
-  document.querySelector('#pokeToSaveBreed').value = "".concat(pokeData.id);
+  document.querySelector('#pokeToSaveID').value = "".concat(pokeData.id);
   document.querySelector('#pokeGeneratorMove').innerHTML = "<b>Move:</b> ".concat(pokeData.move);
   document.querySelector('#pokeToSaveMove').value = "".concat(pokeData.move);
   document.querySelector('#savePokemon').disabled = false;
 };
 
-var PokeGen = function PokeGen(props) {
+var PokeGenerator = function PokeGenerator(props) {
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
     className: "heading"
   }, "Who's that Pokemon"), /*#__PURE__*/React.createElement("div", {
@@ -119,7 +119,7 @@ var PokeGen = function PokeGen(props) {
     name: "type",
     value: ""
   }), /*#__PURE__*/React.createElement("input", {
-    id: "pokeToSaveBreed",
+    id: "pokeToSaveID",
     type: "hidden",
     name: "id",
     value: ""
@@ -284,7 +284,7 @@ var loadPokemonFromServer = function loadPokemonFromServer() {
   checkIfAdFree();
   sendAjax('GET', '/getPokemon', null, function (data) {
     ReactDOM.render( /*#__PURE__*/React.createElement(PokeList, {
-      pokemon: data.pokemon
+      pokemons: data.pokemons
     }), document.querySelector("#pokeGenerator"));
   });
 };
