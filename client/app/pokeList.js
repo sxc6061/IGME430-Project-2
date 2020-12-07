@@ -110,7 +110,7 @@ const PokeGenerator = function (props) {
 };
 
 const PokeList = function (props) {
-    if (props.pokemon.length === 0) {
+    if (props.pokemons.length === 0) {
         return (
             <div className="pokeList">
 
@@ -118,7 +118,7 @@ const PokeList = function (props) {
             </div>
         );
     };
-    const pokeNodes = props.pokemon.map(function (pokemon) {
+    const pokeNodes = props.pokemons.map(function (pokemon) {
         return (
             <div key={pokemon._id} className="poke">
                 <div className="listImage"><img src={pokemon.sprite} alt="Sprite of Pokemon" className="pokeSprite" /></div>

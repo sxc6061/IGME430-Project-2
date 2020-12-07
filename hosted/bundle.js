@@ -148,7 +148,7 @@ var PokeGenerator = function PokeGenerator(props) {
 };
 
 var PokeList = function PokeList(props) {
-  if (props.pokemon.length === 0) {
+  if (props.pokemons.length === 0) {
     return /*#__PURE__*/React.createElement("div", {
       className: "pokeList"
     }, /*#__PURE__*/React.createElement("h1", {
@@ -157,7 +157,7 @@ var PokeList = function PokeList(props) {
   }
 
   ;
-  var pokeNodes = props.pokemon.map(function (pokemon) {
+  var pokeNodes = props.pokemons.map(function (pokemon) {
     return /*#__PURE__*/React.createElement("div", {
       key: pokemon._id,
       className: "poke"
