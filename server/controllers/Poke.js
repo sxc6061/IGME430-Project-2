@@ -75,8 +75,8 @@ const handlePokeData = (req, res, pokeData) => {
 };
 
 const callPokemonDB = (request, response) => {
-  const req = request;
-  const res = response;
+  //const req = request;
+  //const res = response;
 
   //get random pokemon by id number
   //only original 151 pokemon
