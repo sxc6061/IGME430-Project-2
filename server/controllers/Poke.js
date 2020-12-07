@@ -82,15 +82,13 @@ const callPokemonDB = (request, response) => {
 
   //get random pokemon by id number
   //only original 151 pokemon
-  P.getPokemonByName(Math.floor(Math.random() * Math.floor(151)), function(response, error) {
-    if(!error){
-      console.dir(response);
-    }
-    else{
+  P.getPokemonByName(Math.floor(Math.random() * Math.floor(151)))
+    .then(function(response) {
+      return handlePokeData(req,res,randPoke);
+    })
+    .catch(function(error) {
       console.log(error);
-    }
-  });
-  return handlePokeData(req,res,randPoke);
+    });
 };
 
 module.exports.trainerPage = trainerPage;
