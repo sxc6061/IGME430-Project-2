@@ -41,6 +41,8 @@ const savePoke = (req, res) => {
 const getPokemon = (request, response) => {
   const req = request;
   const res = response;
+  let randPoke = P.getPokemonByName(Math.floor(Math.random() * Math.floor(151)));
+  console.dir(randPoke);
   return Poke.PokeModel.findByOwner(req.session.account._id, (err, docs) => {
     if (err) {
       console.log(err);
