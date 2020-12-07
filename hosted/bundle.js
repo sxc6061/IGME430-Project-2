@@ -1,5 +1,9 @@
 "use strict";
 
+var Pokedex = require('pokedex-promise-v2');
+
+var P = new Pokedex();
+
 var generatePokemon = function generatePokemon(e) {
   e.preventDefault(); //get random pokemon by id number
   //only original 151 pokemon
