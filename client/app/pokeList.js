@@ -45,7 +45,7 @@ const setPokeData = (data) => {
 
     if (pokeData.sprites) {
         document.querySelector('#generatorImage').src = pokeData.sprites;
-        document.querySelector('#pokeToSaveSprite').value = pokeData.sprites;
+        document.querySelector('#pokeToSaveSprite').value = `${pokeData.sprites}`;
     } else {
         document.querySelector('#generatorImage').src = "/assets/img/placeholder_image.png";
         document.querySelector('#pokeToSaveSprite').value = "/assets/img/placeholder_image.png";
