@@ -56,10 +56,10 @@ const handlePokeData = (req, res, pokeData) => {
   if (pokeData.sprites) {
     returnData = {
       name: pokeData.name,
-      type: pokeData.types,
+      type: pokeData.types[0].type.name,
       id: pokeData.id,
-      move: pokeData.moves,
-      sprites: pokeData.sprites,
+      move: pokeData.moves[0].move.name,
+      sprites: pokeData.sprites.front_default,
     };
   } else {
     returnData = {
@@ -69,7 +69,7 @@ const handlePokeData = (req, res, pokeData) => {
       move: pokeData.moves,
     };
   }
-
+  console.dir(returnData);
   returnData = JSON.stringify(returnData);
   return res.json(returnData);
 };
