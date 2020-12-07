@@ -82,6 +82,7 @@ const callPokemonDB = (request, response) => {
   //only original 151 pokemon
   P.getPokemonByName(Math.floor(Math.random() * Math.floor(151)))
     .then(function(pokeData) {
+      console.dir(pokeData);
       return handlePokeData(req,res,pokeData);
     })
     .catch(function(error) {
