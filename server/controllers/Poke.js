@@ -81,6 +81,7 @@ const callPokemonDB = (request, response) => {
   //get random pokemon by id number
   //only original 151 pokemon
   let randPoke = P.getPokemonByName(Math.floor(Math.random() * Math.floor(151)));
+  console.ldir(randPoke);
   handlePokeData(req,res,randPoke);
 };
 
