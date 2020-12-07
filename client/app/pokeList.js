@@ -1,13 +1,6 @@
-var Pokedex = require('pokedex-promise-v2');
-var P = new Pokedex();
-
 const generatePokemon = (e) => {
     e.preventDefault();
-    //get random pokemon by id number
-    //only original 151 pokemon
-    let randPoke = P.getPokemonByName(Math.floor(Math.random() * Math.floor(151)));
-    console.dir(randPoke);
-    sendAjax('GET', $("#pokeGenerateForm").attr("action"), randPoke, function (xhr, status, error) {
+    sendAjax('GET', $("#pokeGenerateForm").attr("action"), {}, function (xhr, status, error) {
         setPokeData(xhr);
     });
     return false;
