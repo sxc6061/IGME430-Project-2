@@ -125,7 +125,7 @@ var PokeGenerator = function PokeGenerator(props) {
   }), /*#__PURE__*/React.createElement("input", {
     id: "pokeToSaveSprite",
     type: "hidden",
-    name: "sprite",
+    name: "sprites",
     value: ""
   }), /*#__PURE__*/React.createElement("input", {
     id: "pokeToSaveMove",
@@ -163,7 +163,7 @@ var PokeList = function PokeList(props) {
     }, /*#__PURE__*/React.createElement("div", {
       className: "listImage"
     }, /*#__PURE__*/React.createElement("img", {
-      src: pokemon.sprite,
+      src: pokemon.sprites,
       alt: "Sprite of Pokemon",
       className: "pokeSprite"
     })), /*#__PURE__*/React.createElement("div", {
