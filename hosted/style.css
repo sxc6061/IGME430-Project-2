@@ -6,7 +6,7 @@ html, body {
     padding: 0;
     overflow-x: hidden;
     font-family: 'Roboto', sans-serif;
-    background-color: #EDC7B7;
+    background-color: #f0f0f0;
 }
 
 #logo {
@@ -20,7 +20,7 @@ html, body {
 nav {
     width: 100%;
     height: 50px;
-    background-color: #AC3B61;
+    background-color: #f00000;
     position: fixed; /* Set the navbar to fixed position */
     top: 0; /* Position the navbar at the top of the page */
     border-radius: 4px;
@@ -46,13 +46,13 @@ nav:nth-child(1) {
     text-decoration: none;
     padding: 5px;
     border-radius: 10px;
-    background-color: #AC3B61;
+    background-color: #ee1515;
     transition: background-color 0.4s ease;
 }
 
 .navlink a:hover {
     transition: background-color 0.8s ease;
-    background-color: #8a2f4e;
+    background-color: #900000;
 }
 
 .mainForm {
@@ -142,20 +142,20 @@ nav:nth-child(1) {
     margin: 10px auto;
     font-size: 1.2em;
     width: 100px;
-    background-color: #AC3B61;
+    background-color: #ee1515;
     border-radius: 10px;
-    border-color: #AC3B61;
+    border-color:#ee1515;
     padding: 3px 10px;
     color: white;
     text-decoration: none;
 }
 .inputSubmit:hover {
     transition: background-color 0.4s ease;
-    background-color: #8a2f4e;
+    background-color: #8e0c0c;
 }
 
 .inputSubmit:active {
-    background-color: #67233a;
+    background-color: #770a0a;
     transform: translateY(4px);
   }
 
@@ -166,9 +166,9 @@ nav:nth-child(1) {
     margin: 0 auto;
     font-size: 1.2em;
     width: 100px;
-    background-color: #BAB2B5;
+    background-color: #222224;
     border-radius: 10px;
-    border-color: #BAB2B5;
+    border-color: #222224;
     padding: 3px 10px;
     color: white;
     text-decoration: none;
@@ -196,8 +196,8 @@ nav:nth-child(1) {
     height: 525px;
     padding: 1em;
     justify-content: center;
-    background-color: #AC3B61;
-    border: 2px solid #AC3B61;
+    background-color: #ee1515;
+    border: 2px solid #222224;
     border-radius: 10px;
 }
 
@@ -216,8 +216,8 @@ nav:nth-child(1) {
     min-height:60px;
     overflow: hidden;
     margin: 1em 1em;
-    background-color: #AC3B61;
-    border: 2px solid #AC3B61;
+    background-color: #ee1515;
+    border: 2px solid #222224;
     border-radius: 10px;
 }
 
