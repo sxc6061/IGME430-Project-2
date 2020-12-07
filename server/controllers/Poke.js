@@ -88,7 +88,7 @@ const callPokemonDB = (request, response) => {
       console.log(error);
     }
   });
-  return handlePokeData(req,res,randPoke);
+  //return handlePokeData(req,res,randPoke);
 };
 
 module.exports.trainerPage = trainerPage;
